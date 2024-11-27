@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: privileged-pod
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command: ["sh","-c", "cat /proc/cpuinfo && sleep 3600"]
+    securityContext:
+      privileged: true
