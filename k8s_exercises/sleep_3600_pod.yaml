@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-pod
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      command: ["sh","-c", "echo $(ENV_VAR1) $(ENV_VAR2) && sleep 3600"]
+      env: 
+        - name: ENV_VAR1
+          value: "Hello"
+        - name: ENV_VAR2
+          value: "world!"
